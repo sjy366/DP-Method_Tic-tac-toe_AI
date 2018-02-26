@@ -42,6 +42,7 @@ $ python Play.py
 * Deterministic한 환경이므로 기대값이 아닙니다.
 ```
 모든 Terminal state가 아닌 state S에 대해서,
+
 V(S) = R + discount_factor * V(S')
 ```
 
@@ -50,6 +51,7 @@ V(S) = R + discount_factor * V(S')
 * Deterministic한 환경이므로 기대값이 아닙니다.
 ```
 모든 Terminal state가 아닌 state S에 대해서,
+
 Policy(S) = Argmax_a(R + discount_factor * V(S')) s.t step(S,a) = (S',R)
 ```
 
