@@ -1,4 +1,4 @@
-Tictactoe AI using TD Method
+Tictactoe AI using DP Method
 =====================
 
 ## Run
@@ -17,40 +17,40 @@ $ python Play.py
 
 ## Agents
 
-* agent_RL : °­È­ÇĞ½ÀÀ» ÁøÇà ÇÒ ¿¡ÀÌÀüÆ®
-* agent_Base : ·£´ı/ÀÌ±â´Â ¼ö¸¦ µÎ´Â ºñ±³¿ë ¿¡ÀÌÀüÆ®
-* agent_Human : inputÀ» ¹Ş¾Æ¼­ ¼ö¸¦ ³õ´Â ¿¡ÀÌÀüÆ®
-* value(state) : state¸¦ ¹Ş¾Æ¼­ current value¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
-* policy(state) : state¸¦ ¹Ş¾Æ¼­ current policy¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
+* agent_RL : ê°•í™”í•™ìŠµì„ ì§„í–‰ í•  ì—ì´ì „íŠ¸
+* agent_Base : ëœë¤/ì´ê¸°ëŠ” ìˆ˜ë¥¼ ë‘ëŠ” ë¹„êµìš© ì—ì´ì „íŠ¸
+* agent_Human : inputì„ ë°›ì•„ì„œ ìˆ˜ë¥¼ ë†“ëŠ” ì—ì´ì „íŠ¸
+* value(state) : stateë¥¼ ë°›ì•„ì„œ current valueë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
+* policy(state) : stateë¥¼ ë°›ì•„ì„œ current policyë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
 
 ## Environment
 
-* Tictactoe °ÔÀÓ È¯°æÀÔ´Ï´Ù.
-* step(action) : actionÀ» ¹Ş¾Æ¼­ ½ÇÇàÇÏ°í observationÀ» ¹İÈ¯ÇÕ´Ï´Ù.
-* render() : ÇöÀç »óÅÂ¸¦ È­¸é¿¡ Ãâ·ÂÇÕ´Ï´Ù.
-* init()/reset() : È¯°æÀ» ÃÊ±âÈ­ÇÕ´Ï´Ù.
+* Tictactoe ê²Œì„ í™˜ê²½ì…ë‹ˆë‹¤.
+* step(action) : actionì„ ë°›ì•„ì„œ ì‹¤í–‰í•˜ê³  observationì„ ë°˜í™˜í•©ë‹ˆë‹¤.
+* render() : í˜„ì¬ ìƒíƒœë¥¼ í™”ë©´ì— ì¶œë ¥í•©ë‹ˆë‹¤.
+* init()/reset() : í™˜ê²½ì„ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
 
 ## Learning Algorithm
 
-* TableÀ» ÀÌ¿ëÇÑ DP Method¸¦ »ç¿ëÇÏ¿´½À´Ï´Ù.
-* Policy Iteration (using iterative policy evaluation)ÀÔ´Ï´Ù.
-* Policy Evaluation°ú Policy Improvement¸¦ ¹İº¹ÇÕ´Ï´Ù. (GPI)
-* 1¹øÀÇ Iteration¸¶´Ù agent_Base¿Í 100 Episode¾¿ Å×½ºÆ®ÇÕ´Ï´Ù.
+* Tableì„ ì´ìš©í•œ DP Methodë¥¼ ì‚¬ìš©í•˜ì˜€ìŠµë‹ˆë‹¤.
+* Policy Iteration (using iterative policy evaluation)ì…ë‹ˆë‹¤.
+* Policy Evaluationê³¼ Policy Improvementë¥¼ ë°˜ë³µí•©ë‹ˆë‹¤. (GPI)
+* 1ë²ˆì˜ Iterationë§ˆë‹¤ agent_Baseì™€ 100 Episodeì”© í…ŒìŠ¤íŠ¸í•©ë‹ˆë‹¤.
 
 ### Policy Evaluation
 
-* DeterministicÇÑ È¯°æÀÌ¹Ç·Î ±â´ë°ªÀÌ ¾Æ´Õ´Ï´Ù.
+* Deterministicí•œ í™˜ê²½ì´ë¯€ë¡œ ê¸°ëŒ€ê°’ì´ ì•„ë‹™ë‹ˆë‹¤.
 ```
-¸ğµç Terminal state°¡ ¾Æ´Ñ state S¿¡ ´ëÇØ¼­,
+ëª¨ë“  Terminal stateê°€ ì•„ë‹Œ state Sì— ëŒ€í•´ì„œ,
 
 V(S) = R + discount_factor * V(S')
 ```
 
 ###  Policy Improvement
 
-* DeterministicÇÑ È¯°æÀÌ¹Ç·Î ±â´ë°ªÀÌ ¾Æ´Õ´Ï´Ù.
+* Deterministicí•œ í™˜ê²½ì´ë¯€ë¡œ ê¸°ëŒ€ê°’ì´ ì•„ë‹™ë‹ˆë‹¤.
 ```
-¸ğµç Terminal state°¡ ¾Æ´Ñ state S¿¡ ´ëÇØ¼­,
+ëª¨ë“  Terminal stateê°€ ì•„ë‹Œ state Sì— ëŒ€í•´ì„œ,
 
 Policy(S) = Argmax_a(R + discount_factor * V(S')) s.t step(S,a) = (S',R)
 ```
@@ -64,10 +64,10 @@ Policy(S) = Argmax_a(R + discount_factor * V(S')) s.t step(S,a) = (S',R)
 
 ## Conclusion
 
-* agent_Base¿ÍÀÇ ´ëÀü¿¡¼­ ½Â·üÀÌ 100%¿¡ µµ´ŞÇß½À´Ï´Ù.
-* »ç¶÷°ú ºñ½ÁÇÑ ¼öÁØ(unbeatable)±îÁö ÇĞ½ÀÀÌ µÇ¾ú½À´Ï´Ù.
-* Q-learning method(off-policy TD)º¸´Ù ºü¸£°Ô Optimal policy¿¡ ¼ö·ÅÇÏ¿´½À´Ï´Ù.
-* È¯°æÀÇ ¸ğµ¨À» Á¤È®ÇÏ°Ô °áÁ¤ÇÒ ¼ö ÀÖ°í, stateÀÇ °³¼ö°¡ ÀûÀº °æ¿ì¿¡ »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+* agent_Baseì™€ì˜ ëŒ€ì „ì—ì„œ ìŠ¹ë¥ ì´ 100%ì— ë„ë‹¬í–ˆìŠµë‹ˆë‹¤.
+* ì‚¬ëŒê³¼ ë¹„ìŠ·í•œ ìˆ˜ì¤€(unbeatable)ê¹Œì§€ í•™ìŠµì´ ë˜ì—ˆìŠµë‹ˆë‹¤.
+* Q-learning method(off-policy TD)ë³´ë‹¤ ë¹ ë¥´ê²Œ Optimal policyì— ìˆ˜ë ´í•˜ì˜€ìŠµë‹ˆë‹¤.
+* í™˜ê²½ì˜ ëª¨ë¸ì„ ì •í™•í•˜ê²Œ ê²°ì •í•  ìˆ˜ ìˆê³ , stateì˜ ê°œìˆ˜ê°€ ì ì€ ê²½ìš°ì— ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 
 ## Reference
 
