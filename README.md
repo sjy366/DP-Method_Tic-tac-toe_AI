@@ -1,4 +1,4 @@
-Tictactoe AI using DP Method
+﻿Tictactoe AI using DP Method
 =====================
 
 ## Run
@@ -64,6 +64,8 @@ Policy(S) = Argmax_a(R + discount_factor * V(S')) s.t step(S,a) = (S',R)
 
 ## Conclusion
 
+![average_q_value](./images/average_state_value.png)
+![win_rate](./images/win_rate.png)
 * agent_Base와의 대전에서 승률이 100%에 도달했습니다.
 * 사람과 비슷한 수준(unbeatable)까지 학습이 되었습니다.
 * Q-learning method(off-policy TD)보다 빠르게 Optimal policy에 수렴하였습니다.

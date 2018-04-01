@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import copy
 import itertools
 from Tictactoe_Env import tictactoe, predict, ret_turn
@@ -11,6 +12,9 @@ env = tictactoe()
 agent = AIagent_RL(restore=False)
 agent_base = AIagent_Base()
 
+iteration_plt = []
+v_plt = []
+wr_plt = []
 
 def policy_evaluation(agent):
     theta = 1e-9
@@ -78,8 +82,10 @@ def polcy_improvement(agent):
 
 def train():
     iteration = 0
+
     while True:
         iteration += 1
+        avg_v = 0.0
 
         # policy iteration
         policy_evaluation(agent)
@@ -87,6 +93,7 @@ def train():
 
         # verification stage
         win = lose = draw = 0
+        turn_count = 0
         for i in range(verify_episode):
             done = 0
             env.reset()
@@ -99,6 +106,8 @@ def train():
                 turn = copy.copy(env.turn)
                 if (i + j) % 2 == 1:
                     action = agent.policy(state)
+                    avg_v += agent.value(state) * ((-1) ** (turn + 1))
+                    turn_count += 1
                 else:
                     action = agent_base.policy(state, turn)
                 next_state, done, reward, winner = env.step(action)
@@ -111,10 +120,23 @@ def train():
             else:
                 lose += 1
         win_rate = (win + draw) / verify_episode
+        avg_v /= turn_count
         print("[Iteration %d] Win : %d Draw : %d Lose : %d Win_rate: %.2f" % (iteration, win, draw, lose, win_rate))
+
         agent.save()
+        iteration_plt.append(iteration)
+        v_plt.append(avg_v)
+        wr_plt.append(win_rate)
 
         if stop:
+            plt.plot(iteration_plt, v_plt)
+            plt.xlabel('Policy Iteration')
+            plt.ylabel('Average State-Value')
+            plt.show()
+            plt.plot(iteration_plt, wr_plt)
+            plt.xlabel('Policy Iteration')
+            plt.ylabel('Win Rate [vs Base Agent]')
+            plt.show()
             break
 
 
